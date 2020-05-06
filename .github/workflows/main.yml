@@ -53,6 +53,6 @@ jobs:
       
       - name: Print Powershell Version Message
         env :
-          POWERSHELL_VERSION  : "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
-        run : powershell -command $POWERSHELL_VERSION
+          POWERSHELL_VERSION  : "(Get-Host).Version"
+        run : powershell  $POWERSHELL_VERSION
       
