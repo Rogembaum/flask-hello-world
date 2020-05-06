@@ -7,7 +7,7 @@
 name: GitHub-Actions-Basics
 env   :
   POWERSHELL_VERSION  : "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
-  DEPLOY_PACKAGE_NAME : "flask-deploy-ver- ${{ github.sha }}" 
+  DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}" 
 
 on:
   push:
@@ -20,6 +20,9 @@ jobs:
     steps  :
       - name: Print Hello World Message
         run : echo "Hello World from Testing job" 
+      
+      - name: List Current Folder
+        run : ls -la
       
         
   my-deploy:
