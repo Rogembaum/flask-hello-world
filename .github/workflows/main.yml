@@ -25,7 +25,7 @@ jobs:
         run : ls -la
       
       - name: Git clone repo
-        uses: actions/chekout@v1
+        uses: actions/checkout@v1
               
       - name: List Current Folder after clone
         run : ls -la
