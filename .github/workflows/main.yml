@@ -41,5 +41,5 @@ jobs:
       
       
       - name: Print Powershell Version Message
-        run : powershell ${{ env.POWERSHELL_VERSION }}
+        run : powershell -command ${{ env.POWERSHELL_VERSION }}
       
