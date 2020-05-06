@@ -5,12 +5,14 @@
 # ---------------------------------
 
 name: GitHub-Actions-Basics
+env   :
+  POWERSHELL_VERSION  : "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
+  DEPLOY_PACKAGE_NAME : "flask-deploy-ver- ${{ github.sha }}" 
+
 on:
   push:
     branches: 
       - master
-env   :
-  POWERSHELL_VERSION: "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
 
 jobs:
   my-testing:
@@ -18,8 +20,8 @@ jobs:
     steps  :
       - name: Print Hello World Message
         run : echo "Hello World from Testing job" 
-  
-  
+      
+        
   my-deploy:
     needs  : [my-testing] 
     runs-on: ubuntu-latest
@@ -27,7 +29,9 @@ jobs:
       - name: Print Hello World Message
         run : echo "Hello World from Deploy job" 
   
-
+      - name : Print Deploy Package name
+        run  : echo "Deploy packege name is ${{ env.DEPLOY_PACKAGE_NAME }}" 
+  
   my-prod:
     needs  : [my-deploy]
     runs-on: windows-latest 
