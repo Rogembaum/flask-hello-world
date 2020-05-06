@@ -24,3 +24,13 @@ jobs:
       - name: Print Hello World Message
         run : echo "Hello World from Deploy job" 
   
+
+  my-prod:
+    runs-on: windows-latest 
+    steps  :
+      - name: Print Hello World Message
+        run : echo "Hello World from Deploy job"
+        
+      - name: Print Ipconfig Message
+        run : ipconfig /all 
+        
