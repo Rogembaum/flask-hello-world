@@ -1,0 +1,26 @@
+# ---------------------------------
+# GitHub Actions - Basic Pipeline
+#
+# Copyleft (c) Aleksandr Rogembaum
+# ---------------------------------
+
+name: GitHub-Actions-Basics
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  my-testing:
+    runs-on: ubuntu-latest
+    steps  :
+      - name: Print Hello World Message
+        run : echo "Hello World from Testing job" 
+  
+  
+  my-deploy:
+    runs-on: ubuntu-latest
+    steps  :
+      - name: Print Hello World Message
+        run : echo "Hello World from Deploy job" 
+  
