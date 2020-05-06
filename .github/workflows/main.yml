@@ -51,8 +51,13 @@ jobs:
         run : ipconfig /all 
       
       
-      - name: Print Powershell Version Message
+      - name: Run Powershell
+        run : powershell
+        
+      - name: Powershell Version
+        run : $POWERSHELL_VERSION
         env :
           POWERSHELL_VERSION  : "(Get-Host).Version"
-        run : powershell  $POWERSHELL_VERSION
+        
+        
       
