@@ -10,7 +10,7 @@ on:
     branches: 
       - master
 env   :
-  POWERSHELL_VERSION: $PSVersionTable.PSVersion  
+  POWERSHELL_VERSION: "$PSVersionTable.PSVersion"
 
 jobs:
   my-testing:
@@ -41,5 +41,5 @@ jobs:
       
       
       - name: Print Powershell Version Message
-        run : $ {{ env.POWERSHELL_VERSION }}
-        
+        run : powershell ${{ env.POWERSHELL_VERSION }}
+      
