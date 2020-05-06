@@ -6,7 +6,6 @@
 
 name: GitHub-Actions-Basics
 env :
-  POWERSHELL_VERSION  : "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
   DEPLOY_PACKAGE_NAME : "flask-deploy-ver-${{ github.sha }}" 
 
 on:
@@ -53,5 +52,7 @@ jobs:
       
       
       - name: Print Powershell Version Message
-        run : powershell -command ${{ env.POWERSHELL_VERSION }}
+        env :
+          POWERSHELL_VERSION  : "(Get-Variable PSVersionTable -ValueOnly).PSVersion"
+        run : powershell -command $POWERSHELL_VERSION
       
