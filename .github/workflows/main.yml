@@ -9,6 +9,8 @@ on:
   push:
     branches: 
       - master
+env   :
+  POWERSHELL_VERSION: $PSVersionTable.PSVersion  
 
 jobs:
   my-testing:
@@ -19,6 +21,7 @@ jobs:
   
   
   my-deploy:
+    needs  : [my-testing] 
     runs-on: ubuntu-latest
     steps  :
       - name: Print Hello World Message
@@ -26,11 +29,17 @@ jobs:
   
 
   my-prod:
+    needs  : [my-deploy]
     runs-on: windows-latest 
+    
     steps  :
       - name: Print Hello World Message
         run : echo "Hello World from Deploy job"
         
       - name: Print Ipconfig Message
         run : ipconfig /all 
+      
+      
+      - name: Print Powershell Version Message
+        run : $ {{ env.POWERSHELL_VERSION }}
         
